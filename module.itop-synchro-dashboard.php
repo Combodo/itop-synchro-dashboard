@@ -5,7 +5,7 @@
 
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'itop-synchro-dashboard/1.0.0',
+	'itop-synchro-dashboard/1.1.0',
 	array(
 		// Identification
 		//
@@ -16,6 +16,7 @@ SetupWebPage::AddModule(
 		//
 		'dependencies' => array(
 			'itop-welcome-itil/2.0.0', // For the loading order of the menus
+			'itop-legacy-search-base/1.0.0',
 		),
 		'mandatory' => false,
 		'visible' => true,

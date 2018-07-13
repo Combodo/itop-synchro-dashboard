@@ -120,9 +120,10 @@ try
 	$bDoSearch = ($sOperation == 'search_form');
 	
 	$oFilter = new DBObjectSearch('SynchroDataSource');
-	
-	$oBlock = new DisplayBlock($oFilter, 'search', false, array('open' => $bDoSearch, 'action' => utils::GetAbsoluteUrlAppRoot().'pages/exec.php', 'exec_module' => 'itop-synchro-dashboard', 'exec_page' => 'dashboard.php'));
-	$oBlock->Display($oP, 'sds_filter');
+
+	$aExtraParams = array('open' => $bDoSearch, 'action' => utils::GetAbsoluteUrlAppRoot().'pages/exec.php', 'exec_module' => 'itop-synchro-dashboard', 'exec_page' => 'dashboard.php');
+    $oSearchBlock = new LegacySearchBlock($oFilter);
+    $oSearchBlock->Display($oP, 'sds_filter', $aExtraParams);
 	
 	// Apply the context filtering and the search criteria, if any
 	
