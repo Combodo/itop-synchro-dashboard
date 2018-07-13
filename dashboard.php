@@ -29,8 +29,18 @@
 /**
  * Add a condition (restriction) to the current DBObjectSearch on which the display block is based
  * taking into account the hierarchical keys for which the condition is based on the 'below' operator
+ *
+ * @param DBObjectSearch $oFilter
+ * @param $sFilterCode
+ * @param $condition
+ * @param null $sOpCode
+ *
+ * @throws Exception
+ * @throws CoreException
+ * @throws CoreWarning
+ * @throws MissingQueryArgument
  */
-function AddCondition($oFilter, $sFilterCode, $condition, $sOpCode = null)
+function AddCondition(DBObjectSearch $oFilter, $sFilterCode, $condition, $sOpCode = null)
 {
 	static $aConditions = array();
 	
@@ -91,6 +101,15 @@ function AddCondition($oFilter, $sFilterCode, $condition, $sOpCode = null)
 	}
 }
 
+/**
+ * @param $oFilter
+ * @param $sFilterCode
+ * @param $condition
+ *
+ * @return Expression
+ *
+ * @throws MissingQueryArgument
+ */
 function GetConditionIN($oFilter, $sFilterCode, $condition)
 {
 	$oField = new FieldExpression($sFilterCode,  $oFilter->GetClassAlias());
@@ -208,6 +227,7 @@ try
 			$aRow['start_date'] = $sStartDate;
 			$oStartDate = new DateTime($sStartDate);
 			$oEndDate = new DateTime($sEndDate);
+			/** @var integer $iDuration */
 			$iDuration = $oEndDate->format('U') - $oStartDate->format('U');
 			$iTotalDuration += $iDuration;
 			$aRow['duration'] = AttributeDuration::FormatDuration($iDuration);
@@ -236,7 +256,7 @@ try
 			{
 				$aRow['@class'] = HILIGHT_CLASS_CRITICAL;
 			}
-			else if ($iTotalWarnings > 0)
+			else if ($iCountAllWarnings > 0)
 			{
 				$aRow['@class'] = HILIGHT_CLASS_WARNING;
 			}
