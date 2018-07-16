@@ -141,8 +141,8 @@ try
 	$oFilter = new DBObjectSearch('SynchroDataSource');
 
 	$aExtraParams = array('open' => $bDoSearch, 'action' => utils::GetAbsoluteUrlAppRoot().'pages/exec.php', 'exec_module' => 'itop-synchro-dashboard', 'exec_page' => 'dashboard.php');
-    $oSearchBlock = new LegacySearchBlock($oFilter);
-    $oSearchBlock->Display($oP, 'sds_filter', $aExtraParams);
+    $oSearchBlock = new LegacySearchBlock($oFilter, $aExtraParams);
+    $oSearchBlock->Display($oP, 'sds_filter');
 	
 	// Apply the context filtering and the search criteria, if any
 	
