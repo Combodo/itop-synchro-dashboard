@@ -38,7 +38,6 @@ Dict::Add('EN US', 'English', 'English', array(
 	'UI:SynchroDashboard:PeakMemoryUsage+' => 'Maximum amount of memory used during the synchronization',
 	// Tab labels
 	'UI:SynchroDashboard:Overview:LatestRun' => 'Latest Run',
-	'UI:SynchroDashboard:Overview:DataSources' => 'Data Sources',
 	// Shorter labels for the badges at the top of the overview
 	'UI:SynchroDashboard:Overview:DataSources' => 'Data Sources',
 	'UI:SynchroDashboard:Overview:RunTime' => 'Run Time',
