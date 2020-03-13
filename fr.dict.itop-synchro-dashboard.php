@@ -5,7 +5,6 @@
  * @copyright   Copyright (C) 2013 XXXXX
  * @license     http://opensource.org/licenses/AGPL-3.0
  */
-
 Dict::Add('FR FR', 'French', 'Français', array(
 	// Dictionary entries go here
 	'UI:SynchroDashboard:Title' => 'Tableau de bord de la synchro',
@@ -23,7 +22,6 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'UI:SynchroDashboard:PeakMemoryUsage+' => 'Quantité maximale de mémoire utilisée durant la dernière exécution',
 	// Tab labels
 	'UI:SynchroDashboard:Overview:LatestRun' => 'Dernière exécution',
-	'UI:SynchroDashboard:Overview:DataSources' => 'Sources de Données',
 	// Shorter labels for the badges at the top of the overview
 	'UI:SynchroDashboard:Overview:DataSources' => 'Sources de Données',
 	'UI:SynchroDashboard:Overview:RunTime' => 'Temps d\'Exécution',
