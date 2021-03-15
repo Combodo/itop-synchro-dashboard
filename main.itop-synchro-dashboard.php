@@ -2,7 +2,7 @@
 class ItopSynchroDashboardMenus extends ModuleHandlerAPI
 {
 	/**
-	 * @inheritDocc
+	 * @inheritDoc
 	 * @throws \Exception
 	 */
 	public static function OnMenuCreation()
@@ -13,9 +13,9 @@ class ItopSynchroDashboardMenus extends ModuleHandlerAPI
 			// From iTop 2.7, the "ConfigurationTools" menu group exists
 			// Before, only "AdminTools" was available for that kind of entry
 			$sParentMenuId = ApplicationMenu::GetMenuIndexById('ConfigurationTools') > -1 ? 'ConfigurationTools' : 'AdminTools';
+			$sParentMenuIndex = ApplicationMenu::GetMenuIndexById($sParentMenuId);
 
-			$oAdminMenu = new MenuGroup($sParentMenuId, 90 /* fRank */, 'SynchroDataSource', UR_ACTION_MODIFY, UR_ALLOWED_YES);
-			new WebPageMenuNode('DataSourcesDashboard', utils::GetAbsoluteUrlAppRoot().'pages/exec.php?exec_module=itop-synchro-dashboard&exec_page=dashboard.php', $oAdminMenu->GetIndex(), 25 /* fRank */);
+			new WebPageMenuNode('DataSourcesDashboard', utils::GetAbsoluteUrlAppRoot().'pages/exec.php?exec_module=itop-synchro-dashboard&exec_page=dashboard.php', $sParentMenuIndex, 25 /* fRank */);
 		}
 	}
 }
