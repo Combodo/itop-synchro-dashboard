@@ -124,8 +124,9 @@ try
 	//require_once('../approot.inc.php'); // Not needed since the page is called via exec.php which performs this for us
 	require_once(APPROOT.'/application/application.inc.php');
 	require_once(APPROOT.'/application/itopwebpage.class.inc.php');
-	require_once(APPROOT.'/application/csvpage.class.inc.php');
-
+	if (version_compare(ITOP_DESIGN_LATEST_VERSION , '3.0') < 0) {
+		require_once(APPROOT.'/application/csvpage.class.inc.php');
+	}
 	
 	require_once(APPROOT.'/application/startup.inc.php');
 	$operation = utils::ReadParam('operation', '');
@@ -289,11 +290,11 @@ try
 	$oP->add_style('.badge_number { position: relative; top: 50%; transform: translateY(-50%); }');
 	$oP->add_linked_script(utils::GetAbsoluteUrlAppRoot().'js/raphael-min.js');
 	$oP->add_linked_script(utils::GetAbsoluteUrlModulesRoot().'itop-synchro-dashboard/js/justgage.1.0.1.min.js');
-	
+
 	$oP->AddTabContainer('main');
 	$oP->SetCurrentTabContainer('main');
 	$oP->SetCurrentTab(Dict::S('UI:SynchroDashboard:Overview:LatestRun'));
-	
+
 	$oP->add('<div class="stats-container">');
 	$oP->add("<div class=\"stats_bagde ui-widget-content ui-corner-top  ui-corner-bottom\"><div class=\"badge_number\"><div class=\"badge_label\">".Dict::S('UI:SynchroDashboard:Overview:DataSources')."</div>$iTotalDataSources</div></div>");
 	$oP->add("<div class=\"stats_bagde ui-widget-content ui-corner-top  ui-corner-bottom\"><div class=\"badge_number\"><div class=\"badge_label\">".Dict::S('UI:SynchroDashboard:Overview:RunTime')."</div>".AttributeDuration::FormatDuration($iTotalDuration)."</div></div>");
@@ -349,7 +350,7 @@ EOF
 	);
 	$oP->add('</div>');
 	$oP->table($aConfig, $aData);
-	
+
 	$oP->SetCurrentTab(Dict::S('UI:SynchroDashboard:Overview:DataSources'));
 	$oFilter = new DBObjectSearch('SynchroDataSource');
 	
