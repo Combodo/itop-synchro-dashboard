@@ -255,11 +255,10 @@ try
 			
 			if ($iCountAllErrors > 0)
 			{
-				$aRow['@class'] = HILIGHT_CLASS_CRITICAL;
+				$aRow['@class'] = 'ibo-is-'.HILIGHT_CLASS_CRITICAL;
 			}
-			else if ($iCountAllWarnings > 0)
-			{
-				$aRow['@class'] = HILIGHT_CLASS_WARNING;
+			else if ($iCountAllWarnings > 0) {
+				$aRow['@class'] = 'ibo-is-'.HILIGHT_CLASS_WARNING;
 			}
 		}
 		else
