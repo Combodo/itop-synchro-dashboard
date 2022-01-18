@@ -16,7 +16,7 @@ SetupWebPage::AddModule(
 		// Setup
 		//
 		'dependencies' => array(
-			'itop-welcome-itil/2.0.0', // For the loading order of the menus
+			'itop-welcome-itil/2.5.0', // For the loading order of the menus
 			'itop-legacy-search-base/1.0.0',
 		),
 		'mandatory' => false,
