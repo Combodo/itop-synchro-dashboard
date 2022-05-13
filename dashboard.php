@@ -138,26 +138,23 @@ try
 	$oP = new iTopWebPage(Dict::S('UI:SynchroDashboard:Title'));
 	$sOperation = utils::ReadParam('operation', '');
 	$bDoSearch = ($sOperation == 'search_form');
-	
+
 	$oFilter = new DBObjectSearch('SynchroDataSource');
 
 	$aExtraParams = array('open' => $bDoSearch, 'action' => utils::GetAbsoluteUrlAppRoot().'pages/exec.php', 'exec_module' => 'itop-synchro-dashboard', 'exec_page' => 'dashboard.php');
-    $oSearchBlock = new LegacySearchBlock($oFilter, $aExtraParams);
-    $oSearchBlock->Display($oP, 'sds_filter');
-	
+	$oSearchBlock = new LegacySearchBlock($oFilter, $aExtraParams);
+	$oSearchBlock->Display($oP, 'sds_filter');
+
 	// Apply the context filtering and the search criteria, if any
-	
+
 	$oAppContext = new ApplicationContext();
 	$sClass = $oFilter->GetClass();
-	$aFilterCodes = array_keys(MetaModel::GetClassFilterDefs($sClass));
+	$aFilterCodes = MetaModel::GetFiltersList($sClass);
 	$aCallSpec = array($sClass, 'MapContextParam');
-	if (is_callable($aCallSpec))
-	{
-		foreach($oAppContext->GetNames() as $sContextParam)
-		{
+	if (is_callable($aCallSpec)) {
+		foreach ($oAppContext->GetNames() as $sContextParam) {
 			$sParamCode = call_user_func($aCallSpec, $sContextParam); //Map context parameter to the value/filter code depending on the class
-			if (!is_null($sParamCode))
-			{
+			if (!is_null($sParamCode)) {
 				$sParamValue = $oAppContext->GetCurrentValue($sContextParam, null);
 				if (!is_null($sParamValue))
 				{
