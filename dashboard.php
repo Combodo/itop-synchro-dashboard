@@ -123,6 +123,10 @@ try
 {
 	//require_once('../approot.inc.php'); // Not needed since the page is called via exec.php which performs this for us
 	require_once(APPROOT.'/application/application.inc.php');
+	//remove require itopdesignformat at the same time as version_compare(ITOP_DESIGN_LATEST_VERSION , '3.0') < 0
+	if (! defined("ITOP_DESIGN_LATEST_VERSION")) {
+		require_once APPROOT.'setup/itopdesignformat.class.inc.php';
+	}
 	if (version_compare(ITOP_DESIGN_LATEST_VERSION, '3.0') < 0) {
 		require_once(APPROOT.'/application/itopwebpage.class.inc.php');
 	}
