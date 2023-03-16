@@ -25,11 +25,10 @@ SetupWebPage::AddModule(
 		// Components
 		//
 		'datamodel' => array(
-			'main.itop-synchro-dashboard.php',
 			'model.itop-synchro-dashboard.php',
 		),
 		'webservice' => array(
-			
+
 		),
 		'data.struct' => array(
 			// add your 'structure' definition XML files here,
@@ -37,11 +36,11 @@ SetupWebPage::AddModule(
 		'data.sample' => array(
 			// add your sample data XML files here,
 		),
-		
+
 		// Documentation
 		//
 		'doc.manual_setup' => '', // hyperlink to manual setup documentation, if any
-		'doc.more_information' => '', // hyperlink to more information, if any 
+		'doc.more_information' => '', // hyperlink to more information, if any
 
 		// Default settings
 		//
