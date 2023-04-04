@@ -117,7 +117,7 @@ class SynchroMenuTest extends ItopDataTestCase {
 		$sMessage = "User connected: " . \UserRights::GetUser();
 		ApplicationMenu::ReflectionMenuNodes();
 		$oMenuNode = ApplicationMenu::GetMenuNode(ApplicationMenu::GetMenuIndexById('DataSourcesDashboard'));
-		$bMenuVisible = ! is_null($oMenuNode) && $oMenuNode->IsEnabled();
+		$bMenuVisible = (false === is_null($oMenuNode)) && $oMenuNode->IsEnabled();
 		$this->assertEquals($bExpectedMenuVisible, $bMenuVisible, $sMessage);
 	}
 
