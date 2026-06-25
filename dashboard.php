@@ -290,8 +290,8 @@ try
 	$oP->add_style('.stats_bagde { padding: 0.5em; display: inline-block; vertical-align: middle; height: 90px; min-width: 90px; font-size: 1.3em; font-weight: bold; margin-left: 0.5em; margin-right: 0.5em; text-align: center; margin-top: 1em; margin-bottom: 1em; }');
 	$oP->add_style('.badge_label { font-size: 0.6em; color: #999; margin-bottom: 20px; margin-top: -10px; }');
 	$oP->add_style('.badge_number { position: relative; top: 50%; transform: translateY(-50%); }');
-	$oP->add_linked_script(utils::GetAbsoluteUrlAppRoot().'js/raphael-min.js');
-	$oP->add_linked_script(utils::GetAbsoluteUrlModulesRoot().'itop-synchro-dashboard/js/justgage.1.0.1.min.js');
+	$oP->LinkScriptFromAppRoot('js/raphael-min.js');
+	$oP->LinkScriptFromModule('itop-synchro-dashboard/js/justgage.1.0.1.min.js');
 
 	$oP->AddTabContainer('main');
 	$oP->SetCurrentTabContainer('main');
