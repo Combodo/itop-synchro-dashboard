@@ -16,6 +16,8 @@
 //   You should have received a copy of the GNU Affero General Public License
 //   along with iTop. If not, see <http://www.gnu.org/licenses/>
 
+use Combodo\iTop\Application\WebPage\iTopWebPage;
+
 /**
  * Execute and shows the data quality audit
  *
@@ -119,22 +121,10 @@ function GetConditionIN($oFilter, $sFilterCode, $condition)
 	return $oNewCondition;		
 }
 
-try
-{
-	//require_once('../approot.inc.php'); // Not needed since the page is called via exec.php which performs this for us
+try {
 	require_once(APPROOT.'/application/application.inc.php');
-	//remove require itopdesignformat at the same time as version_compare(ITOP_DESIGN_LATEST_VERSION , '3.0') < 0
-	if (! defined("ITOP_DESIGN_LATEST_VERSION")) {
-		require_once APPROOT.'setup/itopdesignformat.class.inc.php';
-	}
-	if (version_compare(ITOP_DESIGN_LATEST_VERSION, '3.0') < 0) {
-		require_once(APPROOT.'/application/itopwebpage.class.inc.php');
-	}
 	require_once(APPROOT.'/application/startup.inc.php');
-	if (version_compare(ITOP_DESIGN_LATEST_VERSION , '3.0') < 0) {
-		require_once(APPROOT.'/application/csvpage.class.inc.php');
-	}
-	
+
 	$operation = utils::ReadParam('operation', '');
 	$oAppContext = new ApplicationContext();
 	
